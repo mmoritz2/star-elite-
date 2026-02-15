@@ -535,7 +535,7 @@
     <canvas id="particles"></canvas>
     <div class="app-container">
         <header>
-            <h1>⭐ STARBOUND: ELITE EQUESTRIAN ⭐</h1>
+            <h1>STARBOUND: ELITE EQUESTRIAN</h1>
             <div class="currency-bar" id="currencyBar"></div>
         </header>
         <nav id="mainNav" style="display: none;">
@@ -662,11 +662,11 @@
 
         function updateCurrencyBar() {
             document.getElementById('currencyBar').innerHTML = `
-                <div class="currency-item">💰 <span class="currency-value">${gameState.player.coins.toLocaleString()}</span> Coins</div>
-                <div class="currency-item">💎 <span class="currency-value">${gameState.player.gems.toLocaleString()}</span> Gems</div>
-                <div class="currency-item">✨ <span class="currency-value">${gameState.player.spiritTokens}</span> Spirit Tokens</div>
-                <div class="currency-item">🐉 <span class="currency-value">${gameState.player.dragonEssences}</span> Dragon Essences</div>
-                <div class="currency-item">🏆 <span class="currency-value">${gameState.player.prestigePoints}</span> Prestige</div>
+                <div class="currency-item">Coins: <span class="currency-value">${gameState.player.coins.toLocaleString()}</span></div>
+                <div class="currency-item">Gems: <span class="currency-value">${gameState.player.gems.toLocaleString()}</span></div>
+                <div class="currency-item">Spirit Tokens: <span class="currency-value">${gameState.player.spiritTokens}</span></div>
+                <div class="currency-item">Dragon Essences: <span class="currency-value">${gameState.player.dragonEssences}</span></div>
+                <div class="currency-item">Prestige: <span class="currency-value">${gameState.player.prestigePoints}</span></div>
             `;
         }
 
@@ -939,10 +939,10 @@
 
             if (result.type === 'duplicate') {
                 content.innerHTML = `
-                    <button class="close-modal" onclick="closeModal('summonModal')">✕</button>
+                    <button class="close-modal" onclick="closeModal('summonModal')">X</button>
                     <div class="summon-reveal">
                         <h2>Duplicate Horse!</h2>
-                        <div class="summon-animation">🐴</div>
+                        <div class="summon-animation">Horse</div>
                         <h3>${result.horse.name}</h3>
                         <p>Converted to ${result.tokens} Spirit Tokens</p>
                         <button class="btn" onclick="closeModal('summonModal')">Continue</button>
@@ -951,10 +951,10 @@
             } else if (result.type === 'horse') {
                 const rarityClass = 'rarity-' + result.horse.rarity;
                 content.innerHTML = `
-                    <button class="close-modal" onclick="closeModal('summonModal')">✕</button>
+                    <button class="close-modal" onclick="closeModal('summonModal')">X</button>
                     <div class="summon-reveal">
                         <h2>New Horse Summoned!</h2>
-                        <div class="summon-animation ${rarityClass}">🐴</div>
+                        <div class="summon-animation ${rarityClass}">Horse</div>
                         <h3>${result.horse.name}</h3>
                         <p>Breed: ${result.horse.breed}</p>
                         <p>Coat: ${result.horse.coat}</p>
@@ -966,10 +966,10 @@
                 `;
             } else if (result.type === 'dragon') {
                 content.innerHTML = `
-                    <button class="close-modal" onclick="closeModal('summonModal')">✕</button>
+                    <button class="close-modal" onclick="closeModal('summonModal')">X</button>
                     <div class="summon-reveal">
                         <h2>Dragon Summoned!</h2>
-                        <div class="summon-animation" style="background: ${DRAGON_TYPES[result.dragon.type].color};">🐉</div>
+                        <div class="summon-animation" style="background: ${DRAGON_TYPES[result.dragon.type].color};">Dragon</div>
                         <h3>${result.dragon.type} Dragon</h3>
                         <p>Tier: ${result.dragon.tier}</p>
                         <button class="btn" onclick="closeModal('summonModal')">Continue</button>
@@ -1160,9 +1160,9 @@
                 gameState.horses.forEach(horse => {
                     html += `
                         <div class="card horse-card" onclick="showHorseDetails('${horse.id}')">
-                            <div class="horse-icon ${horse.isShimmer ? 'shimmer' : ''}">🐴</div>
+                            <div class="horse-icon ${horse.isShimmer ? 'shimmer' : ''}">Horse</div>
                             <div class="horse-info">
-                                <div class="horse-name">${horse.name} ${horse.isPegasus ? '🦄' : ''} ${horse.isWinged ? '🪽' : ''}</div>
+                                <div class="horse-name">${horse.name} ${horse.isPegasus ? '[Pegasus]' : ''} ${horse.isWinged ? '[Winged]' : ''}</div>
                                 <div class="horse-breed">${horse.breed} - ${horse.coat}</div>
                                 <span class="badge badge-${horse.rarity}">${horse.rarity.toUpperCase()}</span>
                                 <div style="margin-top: 10px;">
@@ -1371,7 +1371,7 @@
             const content = modal.querySelector('.modal-content');
 
             let html = `
-                <button class="close-modal" onclick="closeModal('horseModal')">✕</button>
+                <button class="close-modal" onclick="closeModal('horseModal')">X</button>
                 <h2>${horse.name}</h2>
                 <p><strong>Breed:</strong> ${horse.breed}</p>
                 <p><strong>Coat:</strong> ${horse.coat}</p>
@@ -1457,7 +1457,7 @@
                     <h3 style="margin-top: 30px;">Choose Your Starter Horse:</h3>
                     <div class="starter-horses">
                         <div class="starter-horse" data-breed="Warmblood" onclick="selectStarterHorse('Warmblood')">
-                            <div style="font-size: 3rem;">🐴</div>
+                            <div style="font-size: 3rem;">Horse</div>
                             <h4>Warmblood</h4>
                             <p>Balanced stats, perfect for beginners</p>
                         </div>
